@@ -1,0 +1,128 @@
+/* ABOUT */
+.about {
+  background: var(--mid);
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+.about-text p strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  background: var(--card);
+  border-left: 2px solid var(--orange);
+  font-size: 0.82rem;
+  color: var(--text);
+  transition: background 0.2s;
+}
+
+.skill-item:hover {
+  background: rgba(255, 85, 0, 0.08);
+}
+
+.skill-item::before {
+  content: '▸';
+  color: var(--orange);
+  font-size: 0.6rem;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-card {
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--orange), transparent);
+}
+
+.info-card h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  color: var(--orange);
+}
+
+.software-badges {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.6rem 0.6rem;
+  background: rgba(255, 85, 0, 0.12);
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(255, 85, 0, 0.3);
+  border-radius: 20px;
+}
+
+.icon {
+  width: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.lang-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lang-item.no-border {
+  border: none;
+}
+
+.lang-level {
+  font-size: 0.72rem;
+  color: var(--orange);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

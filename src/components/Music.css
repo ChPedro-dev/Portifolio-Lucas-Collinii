@@ -1,0 +1,233 @@
+/* MUSIC */
+.music {
+  background: var(--dark);
+}
+
+.music-inner {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.track.playing {
+  border-color: var(--orange);
+  background: rgba(255, 85, 0, 0.05);
+}
+
+.track-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: var(--muted);
+  width: 24px;
+  text-align: center;
+}
+
+.track:hover .track-num,
+.track.playing .track-num {
+  color: var(--orange);
+}
+
+.track-img {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.track:hover .track-img,
+.track.playing .track-img {
+  transform: scale(1.1);
+  border-color: var(--orange);
+}
+
+.track-info {
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.track-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-year {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.waveform-container {
+  flex: 1;
+  height: 40px;
+  position: relative;
+  pointer-events: auto;
+}
+
+.track-type {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(255, 85, 0, 0.1);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  width: 65px;
+  text-align: center;
+}
+
+.discography-panel {
+  background: var(--card);
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: sticky;
+  top: 6rem;
+}
+
+.discography-panel h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.disc-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.disc-item {
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 0.3rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.disc-item::before {
+  content: '♪';
+  color: var(--orange);
+  font-size: 0.6rem;
+}
+
+.music-links {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.music-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.platform-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%);
+}
+
+.music-link.spotify {
+  background: #1db954;
+  color: #000;
+}
+
+.music-link.soundcloud {
+  background: #ff5500;
+  color: #fff;
+}
+
+.music-link.soundcloud .platform-logo {
+  filter: brightness(0) invert(1);
+}
+
+.music-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.music-link:hover::after {
+  left: 100%;
+}
+
+.music-link:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.music-link.spotify:hover {
+  box-shadow: 0 10px 30px rgba(29, 185, 84, 0.3);
+}
+
+.music-link.soundcloud:hover {
+  box-shadow: 0 10px 30px rgba(255, 85, 0, 0.3);
+}
+
+.music-intro {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .music-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .disc-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
