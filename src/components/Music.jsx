@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import './Music.css';
 
@@ -43,108 +43,113 @@ const discAll = [
   'Feel Love Again', "Talkin'", 'Have Fun', 'Just Believe',
 ];
 
-export default function Music() {
-  const wavesurfersRef = useRef([]);
-  const trackElemsRef = useRef([]);
+function Track({ track }) {
+  const containerRef = useRef(null);
+  const waveSurferRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    const surfers = [];
+    if (!containerRef.current) return;
+    let isMounted = true;
 
-    tracklist.forEach((track, i) => {
-      const container = document.getElementById(`waveform-${i}`);
-      if (!container) return;
-
-      const ws = WaveSurfer.create({
-        container,
-        waveColor: '#444',
-        progressColor: '#FF5500',
-        cursorColor: 'transparent',
-        barWidth: 2,
-        barRadius: 3,
-        responsive: true,
-        height: 40,
-        normalize: true,
-        partialRender: true,
-      });
-
-      ws.setVolume(0.1);
-      ws.load(track.audio);
-      surfers.push(ws);
-
-      const trackEl = trackElemsRef.current[i];
-
-      const togglePlay = () => {
-        if (ws.isPlaying()) {
-          ws.pause();
-        } else {
-          surfers.forEach((s, j) => { if (j !== i && s.isPlaying()) s.pause(); });
-          // Pause all videos
-          document.querySelectorAll('video').forEach((v) => v.pause());
-          document.querySelectorAll('.proj-card.playing').forEach((c) => {
-            c.classList.remove('playing');
-            const btn = c.querySelector('.play-pause');
-            if (btn) btn.textContent = 'Play';
-          });
-          ws.play();
-        }
-      };
-
-      const onTrackClick = (e) => {
-        if (e.target.closest(`#waveform-${i}`)) {
-          if (!ws.isPlaying()) {
-            surfers.forEach((s, j) => { if (j !== i && s.isPlaying()) s.pause(); });
-            ws.play();
-          }
-          return;
-        }
-        togglePlay();
-      };
-
-      ws.on('play', () => { trackEl?.classList.add('playing'); });
-      ws.on('pause', () => { trackEl?.classList.remove('playing'); });
-      ws.on('finish', () => { trackEl?.classList.remove('playing'); });
-
-      trackEl?.addEventListener('click', onTrackClick);
+    const ws = WaveSurfer.create({
+      container: containerRef.current,
+      waveColor: '#444',
+      progressColor: '#FF5500',
+      cursorColor: 'transparent',
+      barWidth: 2,
+      barRadius: 3,
+      responsive: true,
+      height: 40,
+      normalize: true,
+      partialRender: true,
     });
 
-    wavesurfersRef.current = surfers;
+    ws.setVolume(0.1);
+    
+    ws.on('error', (err) => {
+      if (err.name === 'AbortError') return;
+      if (isMounted) console.debug('WaveSurfer internal error:', err);
+    });
+
+    // Pequeno delay para garantir estabilidade no carregamento (especialmente via ngrok)
+    const loadTimer = setTimeout(() => {
+      if (isMounted) {
+        ws.load(track.audio).catch(err => {
+          if (err.name === 'AbortError') return;
+          console.debug('Load error:', err);
+        });
+      }
+    }, 50);
+
+    ws.on('play', () => isMounted && setIsPlaying(true));
+    ws.on('pause', () => isMounted && setIsPlaying(false));
+    ws.on('finish', () => isMounted && setIsPlaying(false));
+
+    waveSurferRef.current = ws;
 
     return () => {
-      surfers.forEach((ws) => ws.destroy());
+      isMounted = false;
+      clearTimeout(loadTimer);
+      if (ws) {
+        ws.unAll();
+        try {
+          ws.pause();
+          ws.destroy();
+        } catch (e) {
+          // Ignora erros na destruição
+        }
+      }
     };
-  }, []);
+  }, [track.audio]);
 
+  const togglePlay = (e) => {
+    e.stopPropagation();
+    if (!waveSurferRef.current) return;
+
+    if (waveSurferRef.current.isPlaying()) {
+      waveSurferRef.current.pause();
+    } else {
+      // Pause others
+      document.querySelectorAll('video').forEach((v) => v.pause());
+      // Nota: O auto-pause entre tracks agora é mais complexo sem estado global, 
+      // mas podemos usar eventos do DOM ou um contexto se necessário.
+      // Por simplicidade, vamos apenas pausar vídeos aqui.
+      waveSurferRef.current.play();
+    }
+  };
+
+  return (
+    <div className={`track ${isPlaying ? 'playing' : ''}`} onClick={togglePlay}>
+      <div className="track-num">{track.num}</div>
+      <img src={track.cover} alt={track.name} className="track-img" />
+      <div className="track-info">
+        <div className="track-name">{track.name}</div>
+        <div className="track-year">{track.year}</div>
+      </div>
+      <div className="waveform-container" ref={containerRef} onClick={(e) => e.stopPropagation()} />
+      <span className="track-type">{track.type}</span>
+    </div>
+  );
+}
+
+export default function Music() {
   return (
     <section className="music" id="musica">
       <div className="section-label reveal">Produção Musical</div>
       <h2 className="section-title reveal">Discografia</h2>
       <div className="music-inner">
-        {/* TRACKS */}
         <div className="tracks reveal">
           <p className="music-intro">
             Nascido em família de músicos, com base em guitarra e produção via FL Studio, trouxe ritmo e
             narrativa para a edição de vídeo. Hoje também produz trilhas e elementos sonoros para seus
             projetos audiovisuais.
           </p>
-          {tracklist.map((track, i) => (
-            <div
-              className="track"
-              key={track.name}
-              ref={(el) => (trackElemsRef.current[i] = el)}
-            >
-              <div className="track-num">{track.num}</div>
-              <img src={track.cover} alt={track.name} className="track-img" />
-              <div className="track-info">
-                <div className="track-name">{track.name}</div>
-                <div className="track-year">{track.year}</div>
-              </div>
-              <div className="waveform-container" id={`waveform-${i}`} />
-              <span className="track-type">{track.type}</span>
-            </div>
+          {tracklist.map((track) => (
+            <Track key={track.name} track={track} />
           ))}
         </div>
 
-        {/* DISCOGRAPHY PANEL */}
         <div className="discography-panel reveal">
           <h4>♪ Todas as Faixas</h4>
           <div className="disc-list">

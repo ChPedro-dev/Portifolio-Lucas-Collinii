@@ -94,19 +94,24 @@ const professionalProjects = [
   },
 ];
 
+// Global flag to prevent re-triggering scroll on remount (SPA navigation)
+let hasScrolledInitial = false;
+
 export default function Projects() {
   const allVideosRef = useRef([]);
 
-  // Scroll vincenzo into view when section enters viewport
+  // Scroll vincenzo into view when section enters viewport (only once)
   useEffect(() => {
+    if (hasScrolledInitial) return;
+    
     const section = document.getElementById('projetos');
     const vincenzo = document.getElementById('vincenzoCard');
-    let done = false;
     if (!section || !vincenzo) return;
+    
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !done) {
-          done = true;
+        if (entry.isIntersecting && !hasScrolledInitial) {
+          hasScrolledInitial = true;
           setTimeout(() => vincenzo.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
           obs.unobserve(section);
         }

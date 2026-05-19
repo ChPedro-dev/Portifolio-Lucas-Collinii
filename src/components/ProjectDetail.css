@@ -1,0 +1,89 @@
+.project-detail-page {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  overflow-y: auto;
+  padding: 4rem 2rem;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  z-index: -1;
+}
+
+.back-button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+.back-button:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.detail-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detail-header {
+  margin-bottom: 3rem;
+}
+
+.detail-title {
+  font-size: 4rem;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+.detail-hero-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+.detail-desc {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .detail-title {
+    font-size: 2.5rem;
+  }
+}
