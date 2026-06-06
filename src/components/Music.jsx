@@ -59,10 +59,8 @@ function Track({ track }) {
       cursorColor: 'transparent',
       barWidth: 2,
       barRadius: 3,
-      responsive: true,
       height: 40,
       normalize: true,
-      partialRender: true,
     });
 
     ws.setVolume(0.1);
@@ -85,12 +83,27 @@ function Track({ track }) {
     ws.on('play', () => isMounted && setIsPlaying(true));
     ws.on('pause', () => isMounted && setIsPlaying(false));
     ws.on('finish', () => isMounted && setIsPlaying(false));
+    ws.on('interaction', () => {
+      if (isMounted) {
+        document.querySelectorAll('video').forEach((v) => v.pause());
+        window.dispatchEvent(new CustomEvent('pause-other-tracks', { detail: track.num }));
+        ws.play().catch(() => {});
+      }
+    });
+
+    const handlePauseOthers = (e) => {
+      if (e.detail !== track.num && ws && ws.isPlaying()) {
+        ws.pause();
+      }
+    };
+    window.addEventListener('pause-other-tracks', handlePauseOthers);
 
     waveSurferRef.current = ws;
 
     return () => {
       isMounted = false;
       clearTimeout(loadTimer);
+      window.removeEventListener('pause-other-tracks', handlePauseOthers);
       if (ws) {
         ws.unAll();
         try {
@@ -112,10 +125,8 @@ function Track({ track }) {
     } else {
       // Pause others
       document.querySelectorAll('video').forEach((v) => v.pause());
-      // Nota: O auto-pause entre tracks agora é mais complexo sem estado global, 
-      // mas podemos usar eventos do DOM ou um contexto se necessário.
-      // Por simplicidade, vamos apenas pausar vídeos aqui.
-      waveSurferRef.current.play();
+      window.dispatchEvent(new CustomEvent('pause-other-tracks', { detail: track.num }));
+      waveSurferRef.current.play().catch(() => {});
     }
   };
 
@@ -127,6 +138,13 @@ function Track({ track }) {
         <div className="track-name">{track.name}</div>
         <div className="track-year">{track.year}</div>
       </div>
+      <button className="track-play-btn" aria-label={isPlaying ? "Pause" : "Play"}>
+        {isPlaying ? (
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        ) : (
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        )}
+      </button>
       <div className="waveform-container" ref={containerRef} onClick={(e) => e.stopPropagation()} />
       <span className="track-type">{track.type}</span>
     </div>

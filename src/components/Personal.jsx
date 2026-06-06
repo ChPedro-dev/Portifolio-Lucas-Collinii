@@ -3,6 +3,7 @@ import './Projects.css';
 const personalProjects = [
   {
     id: 'kalliniCard',
+    image: '/assets/SESSÃO 3/KALLINI/CAPA.png',
     gradient: 'linear-gradient(135deg, #001a3a, #003a6e, #0050a0)',
     emoji: '⚔️',
     typeLabel: 'Projeto Pessoal · Gaming',
@@ -21,7 +22,7 @@ const personalProjects = [
   },
 ];
 
-export default function Personal() {
+export default function Personal({ onSelectProject }) {
   return (
     <section className="projects" id="pessoais">
       <div className="projects-header reveal">
@@ -32,12 +33,20 @@ export default function Personal() {
       </div>
       <div className="proj-grid">
         {personalProjects.map((p) => (
-          <div className="proj-card reveal" id={p.id} key={p.id}>
+          <div 
+            className="proj-card reveal" 
+            id={p.id} 
+            key={p.id}
+            onClick={() => onSelectProject?.(p)}
+            style={{ cursor: 'pointer' }}
+          >
             <div
               className="proj-img"
-              style={{ background: p.gradient }}
+              style={{ 
+                background: p.image ? `url('${p.image}') center/cover` : p.gradient 
+              }}
             >
-              <span className="proj-emoji">{p.emoji}</span>
+              {!p.image && <span className="proj-emoji">{p.emoji}</span>}
               <div className="proj-img-overlay" />
               <span className="proj-type-label">{p.typeLabel}</span>
             </div>

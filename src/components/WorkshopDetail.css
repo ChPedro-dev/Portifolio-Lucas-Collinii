@@ -1,19 +1,19 @@
-/* === PÁGINA ABBA JOVEM — TEMA PISCINA === */
-.aj-detail-page {
+/* === PÁGINA WORKSHOP — TEMA PREMIUM GOLD / CHARCOAL === */
+.ws-detail-page {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background-color: #1a6fd6;
+  background-color: #111115;
   color: #ffffff;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 4.5rem 2.5rem 6rem;
   font-family: 'DM Sans', sans-serif;
-  animation: ajFadeIn 0.6s ease forwards;
+  animation: wsFadeIn 0.6s ease forwards;
 }
 
 /* === FUNDO EM VÍDEO === */
-.aj-bg-video {
+.ws-bg-video {
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -21,21 +21,22 @@
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.3; /* Subtle overlay */
 }
 
-@keyframes ajFadeIn {
+@keyframes wsFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 /* === BOTÃO VOLTAR === */
-.aj-back-button {
+.ws-back-button {
   position: fixed;
   top: 1.5rem;
   left: 1.5rem;
-  background: #ff5252;
+  background: #f3c63f;
   border: none;
-  color: #fff;
+  color: #111115;
   padding: 0.7rem 1.4rem;
   cursor: pointer;
   z-index: 1100;
@@ -45,16 +46,16 @@
   font-size: 0.78rem;
   transition: all 0.3s ease;
   border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
-.aj-back-button:hover {
-  background: #003366;
+.ws-back-button:hover {
+  background: #ffffff;
   transform: scale(1.05);
 }
 
 /* === HEADER === */
-.aj-detail-header {
+.ws-detail-header {
   max-width: 1100px;
   margin: 0 auto 2.5rem;
   text-align: center;
@@ -63,49 +64,58 @@
   padding-top: 1rem;
 }
 
-.aj-detail-title {
+.ws-detail-title {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: clamp(38px, 5.6vw, 78px);
   letter-spacing: 0.02em;
   line-height: 1;
-  color: #d6eeff;
+  color: #f3c63f;
   text-shadow:
-    0 4px 0 rgba(0, 51, 102, 0.35),
-    0 8px 22px rgba(0, 51, 102, 0.55);
+    0 4px 0 rgba(0, 0, 0, 0.5),
+    0 8px 22px rgba(0, 0, 0, 0.8);
   margin: 0 0 1rem;
 }
 
-.aj-detail-desc {
+.ws-detail-desc {
   max-width: 640px;
   margin: 0 auto;
   font-family: 'DM Sans', serif;
   font-size: 1rem;
   line-height: 1.55;
-  color: #f0f7ff;
+  color: #e2e2e8;
   font-weight: 400;
-  text-shadow: 0 2px 6px rgba(0, 51, 102, 0.45);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* === FRAME TRANSLÚCIDO DOS CARDS === */
-.aj-frame {
+.ws-frame {
   max-width: 1500px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
   padding: 2.8rem 2.4rem 3rem;
   border-radius: 28px;
-  background: rgba(80, 170, 235, 0.18);
-  border: 2px solid rgba(190, 230, 255, 0.55);
+  background: rgba(20, 20, 25, 0.65);
+  border: 2px solid rgba(243, 198, 63, 0.35);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-    0 18px 50px rgba(0, 40, 90, 0.25);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+    0 18px 50px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* === GRID 2x2 === */
-.aj-grid {
+/* === GRIDS === */
+.ws-grid-videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem 2rem;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2.2rem;
+}
+
+.ws-grid-images {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.8rem 2rem;
@@ -113,46 +123,51 @@
   z-index: 2;
 }
 
-.aj-card-wrap {
+.ws-card-wrap {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
 }
 
-.aj-card-title {
+.ws-card-title {
   font-family: 'DM Sans', serif;
   font-weight: 400;
   font-style: italic;
   font-size: clamp(1rem, 1.4vw, 1.25rem);
-  color: #ffffff;
+  color: #f3c63f;
   letter-spacing: 0.01em;
-  text-shadow: 0 2px 6px rgba(0, 51, 102, 0.4);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
   padding-left: 0.25rem;
 }
 
-.aj-card {
+.ws-card {
   position: relative;
-  background: #003366;
+  background: #1c1c22;
   border-radius: 22px;
   overflow: hidden;
-  aspect-ratio: 16/9;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow:
-    0 14px 32px rgba(0, 30, 70, 0.45),
-    0 2px 0 rgba(255, 255, 255, 0.08) inset;
+    0 14px 32px rgba(0, 0, 0, 0.5),
+    0 2px 0 rgba(255, 255, 255, 0.05) inset;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.aj-card:hover {
+.ws-card--hero, .ws-card--image {
+  aspect-ratio: 16/9;
+}
+
+.ws-card:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 22px 50px rgba(0, 30, 70, 0.55),
+    0 22px 50px rgba(243, 198, 63, 0.15),
     0 2px 0 rgba(255, 255, 255, 0.1) inset;
+  border-color: rgba(243, 198, 63, 0.5);
 }
 
-.aj-card-media {
+.ws-card-media {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -160,43 +175,43 @@
 }
 
 /* === CUSTOM SCROLLBAR === */
-.aj-detail-page::-webkit-scrollbar {
+.ws-detail-page::-webkit-scrollbar {
   width: 12px;
 }
 
-.aj-detail-page::-webkit-scrollbar-track {
+.ws-detail-page::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.aj-detail-page::-webkit-scrollbar-thumb {
-  background-color: #ff5252;
+.ws-detail-page::-webkit-scrollbar-thumb {
+  background-color: #f3c63f;
   border-radius: 20px;
   border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
-.aj-detail-page::-webkit-scrollbar-thumb:hover {
-  background-color: #003366;
+.ws-detail-page::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
 }
 
 /* RESPONSIVO */
 @media (max-width: 900px) {
-  .aj-detail-page {
+  .ws-detail-page {
     padding: 4rem 1rem 5rem;
     background-size: cover;
     background-position: center;
   }
 
-  .aj-frame {
+  .ws-frame {
     padding: 1.4rem 1rem 1.6rem;
     border-radius: 20px;
   }
 
-  .aj-grid {
+  .ws-grid-videos, .ws-grid-images {
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
 
-  .aj-detail-title {
+  .ws-detail-title {
     font-size: clamp(32px, 8vw, 48px);
   }
 }

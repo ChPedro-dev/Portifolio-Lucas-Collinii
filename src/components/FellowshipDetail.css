@@ -1,39 +1,28 @@
-/* === PÁGINA ABBA JOVEM — TEMA PISCINA === */
-.aj-detail-page {
+/* === PÁGINA FELLOWSHIP AJ === */
+.fl-detail-page {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background-color: #1a6fd6;
+  background-color: #111111;
   color: #ffffff;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 4.5rem 2.5rem 6rem;
   font-family: 'DM Sans', sans-serif;
-  animation: ajFadeIn 0.6s ease forwards;
+  animation: flFadeIn 0.6s ease forwards;
 }
 
-/* === FUNDO EM VÍDEO === */
-.aj-bg-video {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none;
-}
-
-@keyframes ajFadeIn {
+@keyframes flFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 /* === BOTÃO VOLTAR === */
-.aj-back-button {
+.fl-back-button {
   position: fixed;
   top: 1.5rem;
   left: 1.5rem;
-  background: #ff5252;
+  background: #ef364b;
   border: none;
   color: #fff;
   padding: 0.7rem 1.4rem;
@@ -48,13 +37,13 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-.aj-back-button:hover {
-  background: #003366;
+.fl-back-button:hover {
+  background: #111111;
   transform: scale(1.05);
 }
 
 /* === HEADER === */
-.aj-detail-header {
+.fl-detail-header {
   max-width: 1100px;
   margin: 0 auto 2.5rem;
   text-align: center;
@@ -63,96 +52,117 @@
   padding-top: 1rem;
 }
 
-.aj-detail-title {
+.fl-detail-title {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: clamp(38px, 5.6vw, 78px);
   letter-spacing: 0.02em;
   line-height: 1;
-  color: #d6eeff;
-  text-shadow:
-    0 4px 0 rgba(0, 51, 102, 0.35),
-    0 8px 22px rgba(0, 51, 102, 0.55);
+  color: #ef364b;
+  text-shadow: none;
   margin: 0 0 1rem;
 }
 
-.aj-detail-desc {
+.fl-detail-desc {
   max-width: 640px;
   margin: 0 auto;
   font-family: 'DM Sans', serif;
   font-size: 1rem;
   line-height: 1.55;
-  color: #f0f7ff;
-  font-weight: 400;
-  text-shadow: 0 2px 6px rgba(0, 51, 102, 0.45);
+  color: #111111;
+  font-weight: 600;
+  text-shadow: none;
 }
 
-/* === FRAME TRANSLÚCIDO DOS CARDS === */
-.aj-frame {
+/* === FRAME === */
+.fl-frame {
   max-width: 1500px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
   padding: 2.8rem 2.4rem 3rem;
   border-radius: 28px;
-  background: rgba(80, 170, 235, 0.18);
-  border: 2px solid rgba(190, 230, 255, 0.55);
+  background: rgba(0, 0, 0, 0.22);
+  border: 2px solid rgba(255, 255, 255, 0.12);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-    0 18px 50px rgba(0, 40, 90, 0.25);
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 18px 50px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
 
-/* === GRID 2x2 === */
-.aj-grid {
+/* === GRID DOS 2 VÍDEOS === */
+.fl-grid-videos {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.8rem 2rem;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 2rem;
 }
 
-.aj-card-wrap {
+.fl-card-wrap {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
 }
 
-.aj-card-title {
+.fl-card-title {
   font-family: 'DM Sans', serif;
-  font-weight: 400;
+  font-weight: 600;
   font-style: italic;
   font-size: clamp(1rem, 1.4vw, 1.25rem);
-  color: #ffffff;
+  color: #111111;
   letter-spacing: 0.01em;
-  text-shadow: 0 2px 6px rgba(0, 51, 102, 0.4);
+  text-shadow: none;
   padding-left: 0.25rem;
 }
 
-.aj-card {
+/* === CARD BASE === */
+.fl-card {
   position: relative;
-  background: #003366;
+  background: #1a1a1a;
   border-radius: 22px;
   overflow: hidden;
-  aspect-ratio: 16/9;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow:
-    0 14px 32px rgba(0, 30, 70, 0.45),
+    0 14px 32px rgba(0, 0, 0, 0.5),
+    0 2px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.fl-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.65),
     0 2px 0 rgba(255, 255, 255, 0.08) inset;
 }
 
-.aj-card:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 22px 50px rgba(0, 30, 70, 0.55),
-    0 2px 0 rgba(255, 255, 255, 0.1) inset;
+/* Vídeos em destaque — 16/9 */
+.fl-card--hero {
+  aspect-ratio: 16/9;
 }
 
-.aj-card-media {
+/* === IMAGEM DESCANSO CENTRALIZADA === */
+.fl-descanso-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.fl-card-title--center {
+  align-self: center;
+  text-align: center;
+  padding-left: 0;
+}
+
+.fl-card--descanso {
+  width: 60%;
+  aspect-ratio: 16/9;
+}
+
+.fl-card-media {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -160,43 +170,45 @@
 }
 
 /* === CUSTOM SCROLLBAR === */
-.aj-detail-page::-webkit-scrollbar {
+.fl-detail-page::-webkit-scrollbar {
   width: 12px;
 }
 
-.aj-detail-page::-webkit-scrollbar-track {
+.fl-detail-page::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.aj-detail-page::-webkit-scrollbar-thumb {
-  background-color: #ff5252;
+.fl-detail-page::-webkit-scrollbar-thumb {
+  background-color: #ef364b;
   border-radius: 20px;
   border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
-.aj-detail-page::-webkit-scrollbar-thumb:hover {
-  background-color: #003366;
+.fl-detail-page::-webkit-scrollbar-thumb:hover {
+  background-color: #111111;
 }
 
 /* RESPONSIVO */
 @media (max-width: 900px) {
-  .aj-detail-page {
+  .fl-detail-page {
     padding: 4rem 1rem 5rem;
-    background-size: cover;
-    background-position: center;
   }
 
-  .aj-frame {
+  .fl-frame {
     padding: 1.4rem 1rem 1.6rem;
     border-radius: 20px;
   }
 
-  .aj-grid {
+  .fl-grid-videos {
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
 
-  .aj-detail-title {
+  .fl-card--descanso {
+    width: 90%;
+  }
+
+  .fl-detail-title {
     font-size: clamp(32px, 8vw, 48px);
   }
 }

@@ -10,6 +10,7 @@ const volunteerProjects = [
     title: 'AJ After Party México',
     desc: 'Edição, desenvolvimento de pacote gráfico e finalização de projeto de encerramento de semestre. O trabalho que marcou o início da minha trajetória com o After Effects.',
     tags: ['After Effects', 'Motion Design'],
+    keepCoverOnHover: true,
   },
   {
     id: 'fellowshipCard',
@@ -18,6 +19,7 @@ const volunteerProjects = [
     title: 'AJ Fellowship',
     desc: 'Edição e finalização de vídeo para o evento Fellowship do Abba Jovem. Trabalho focado em capturar a energia e a conexão entre os participantes.',
     tags: ['Edição', 'After Effects'],
+    keepCoverOnHover: true,
   },
   {
     id: 'abbaJovemCard',
@@ -30,10 +32,11 @@ const volunteerProjects = [
   {
     id: 'workshopCard',
     image: '/assets/SESSÃO 2/WORKSHOP/DESCANSO WORKSHOP.png',
-    hoverBg: '/assets/SESSÃO 2/WORKSHOP/BG WORKSHOP.png',
+    hoverBg: '/assets/SESSÃO 2/WORKSHOP/BG SESSÃO WORKSHOP.mp4',
     title: 'Workshop Abba Música',
     desc: 'Desenvolvimento de pacote gráfico para identidade visual do grupo Abba Música. Projeto educacional com abordagem visual simples, priorizando clareza e funcionalidade.',
     tags: ['Identidade Visual', 'Design'],
+    keepCoverOnHover: true,
   },
 ];
 
@@ -68,23 +71,46 @@ export default function Volunteer({ onSelectProject }) {
       }}
     >
       {/* Background Layer */}
-      {volunteerProjects.map((p) => (
-        <div
-          key={`bg-${p.id}`}
-          className={`volunteer-bg-layer ${hoveredBg === p.hoverBg ? 'visible' : ''}`}
-          style={{
-            backgroundImage: `url('${p.hoverBg}')`,
-            position: 'absolute',
-            inset: 0,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: hoveredBg === p.hoverBg ? 0.2 : 0,
-            transition: 'opacity 0.8s ease',
-            zIndex: 0,
-            pointerEvents: 'none',
-          }}
-        />
-      ))}
+      {volunteerProjects.map((p) => 
+        p.hoverBg.endsWith('.mp4') ? (
+          <video
+            key={`bg-${p.id}`}
+            src={p.hoverBg}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`volunteer-bg-layer ${hoveredBg === p.hoverBg ? 'visible' : ''}`}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              opacity: hoveredBg === p.hoverBg ? 0.2 : 0,
+              transition: 'opacity 0.8s ease',
+              zIndex: 0,
+              pointerEvents: 'none',
+            }}
+          />
+        ) : (
+          <div
+            key={`bg-${p.id}`}
+            className={`volunteer-bg-layer ${hoveredBg === p.hoverBg ? 'visible' : ''}`}
+            style={{
+              backgroundImage: `url('${p.hoverBg}')`,
+              position: 'absolute',
+              inset: 0,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: hoveredBg === p.hoverBg ? 0.2 : 0,
+              transition: 'opacity 0.8s ease',
+              zIndex: 0,
+              pointerEvents: 'none',
+            }}
+          />
+        )
+      )}
 
       <div className="projects-header reveal" style={{ position: 'relative', zIndex: 1 }}>
         <div>

@@ -23,6 +23,7 @@ export default function ImageCard({
   onMouseEnter,
   onMouseLeave,
   onClick,
+  keepCoverOnHover,
 }) {
   return (
     <div
@@ -35,7 +36,7 @@ export default function ImageCard({
     >
       {/* Imagem */}
       <div className="proj-img image-only">
-        {hoverBg && (
+        {hoverBg && !hoverBg.endsWith('.mp4') && !keepCoverOnHover && (
           <img src={hoverBg} alt="" className="card-hover-bg" aria-hidden="true" />
         )}
         <img src={image} alt={title} className="card-static-img" />

@@ -12,6 +12,11 @@ import Music from './components/Music';
 import Contact from './components/Contact';
 import ProjectDetail from './components/ProjectDetail';
 import AbbaJovemDetail from './components/AbbaJovemDetail';
+import AfterPartyDetail from './components/AfterPartyDetail';
+import FellowshipDetail from './components/FellowshipDetail';
+import WorkshopDetail from './components/WorkshopDetail';
+import KalliniDetail from './components/KalliniDetail';
+
 
 function App() {
   const [activeProject, setActiveProject] = useState(null);
@@ -75,7 +80,7 @@ function App() {
         <Experience />
         <Projects />
         <Volunteer onSelectProject={setActiveProject} />
-        <Personal />
+        <Personal onSelectProject={setActiveProject} />
         <Music />
         <Contact />
       </div>
@@ -87,7 +92,35 @@ function App() {
         />
       )}
 
-      {activeProject && activeProject.id !== 'abbaJovemCard' && (
+      {activeProject && activeProject.id === 'afterPartyCard' && (
+        <AfterPartyDetail
+          project={activeProject}
+          onBack={handleBack}
+        />
+      )}
+
+      {activeProject && activeProject.id === 'fellowshipCard' && (
+        <FellowshipDetail
+          project={activeProject}
+          onBack={handleBack}
+        />
+      )}
+
+      {activeProject && activeProject.id === 'workshopCard' && (
+        <WorkshopDetail
+          project={activeProject}
+          onBack={handleBack}
+        />
+      )}
+
+      {activeProject && activeProject.id === 'kalliniCard' && (
+        <KalliniDetail
+          project={activeProject}
+          onBack={handleBack}
+        />
+      )}
+
+      {activeProject && activeProject.id !== 'abbaJovemCard' && activeProject.id !== 'afterPartyCard' && activeProject.id !== 'fellowshipCard' && activeProject.id !== 'workshopCard' && activeProject.id !== 'kalliniCard' && (
         <ProjectDetail
           project={activeProject}
           onBack={handleBack}

@@ -83,8 +83,34 @@
   margin-top: 0.1rem;
 }
 
+.track-play-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.track:hover .track-play-btn,
+.track.playing .track-play-btn {
+  color: var(--orange);
+}
+
+.track-play-btn:hover {
+  background: rgba(255, 85, 0, 0.1);
+  transform: scale(1.1);
+}
+
 .waveform-container {
   flex: 1;
+  min-width: 80px;
   height: 40px;
   position: relative;
   pointer-events: auto;

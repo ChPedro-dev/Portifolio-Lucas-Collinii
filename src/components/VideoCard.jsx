@@ -40,6 +40,7 @@ export default function VideoCard({
   const volumeRef = useRef(null);
   const timelinelineRef = useRef(null);
   const popupRef = useRef(null);
+  const timelineIndicatorRef = useRef(null);
   const popupTimerRef = useRef(null);
 
   // Registra o vídeo principal na lista global de auto-pause
@@ -88,6 +89,7 @@ export default function VideoCard({
     const progressBar = progressRef.current;
     const timeline = timelinelineRef.current;
     const popup = popupRef.current;
+    const timelineIndicator = timelineIndicatorRef.current;
     const imgContainer = card?.querySelector('.proj-img');
 
     if (!video || !card) return;
@@ -101,8 +103,8 @@ export default function VideoCard({
 
     // Sync on autoplay
     if (!video.paused) {
-      bgVideo?.play();
-      tlVideo?.play();
+      if (bgVideo) bgVideo.play().catch(() => {});
+      if (tlVideo) tlVideo.play().catch(() => {});
       scheduleTimelinePopup();
     }
 
@@ -120,9 +122,9 @@ export default function VideoCard({
         }
 
         pauseOthers();
-        video.play();
-        bgVideo?.play();
-        tlVideo?.play();
+        video.play().catch(() => {});
+        if (bgVideo) bgVideo.play().catch(() => {});
+        if (tlVideo) tlVideo.play().catch(() => {});
         if (playBtn) playBtn.textContent = 'Pause';
         card.classList.add('playing');
         scheduleTimelinePopup();
@@ -172,19 +174,12 @@ export default function VideoCard({
       if (!video.duration) return;
       const pct = (video.currentTime / video.duration) * 100;
       if (progressBar) progressBar.style.width = pct + '%';
+      if (timelineIndicatorRef.current) timelineIndicatorRef.current.style.left = pct + '%';
       if (bgVideo && Math.abs(bgVideo.currentTime - video.currentTime) > 0.1) bgVideo.currentTime = video.currentTime;
       if (tlVideo && Math.abs(tlVideo.currentTime - video.currentTime) > 0.1) tlVideo.currentTime = video.currentTime;
     };
 
-    const onSeek = (e) => {
-      e.stopPropagation();
-      if (!timeline) return;
-      const rect = timeline.getBoundingClientRect();
-      const pos = (e.clientX - rect.left) / rect.width;
-      video.currentTime = pos * video.duration;
-      if (bgVideo) bgVideo.currentTime = video.currentTime;
-      if (tlVideo) tlVideo.currentTime = video.currentTime;
-    };
+    // onSeek is now handled via React onClick
 
     const onEnded = () => {
       video.removeAttribute('autoplay');
@@ -215,7 +210,7 @@ export default function VideoCard({
     muteBtn?.addEventListener('click', onMuteBtn);
     volSlider?.addEventListener('input', onVolume);
     video.addEventListener('timeupdate', onTimeUpdate);
-    timeline?.addEventListener('click', onSeek);
+    // timeline click is now handled by React
     video.addEventListener('ended', onEnded);
     popup?.addEventListener('click', onPopupClick);
 
@@ -228,7 +223,7 @@ export default function VideoCard({
       muteBtn?.removeEventListener('click', onMuteBtn);
       volSlider?.removeEventListener('input', onVolume);
       video.removeEventListener('timeupdate', onTimeUpdate);
-      timeline?.removeEventListener('click', onSeek);
+      // timeline listener removed
       video.removeEventListener('ended', onEnded);
       popup?.removeEventListener('click', onPopupClick);
       video.removeEventListener('play', scheduleTimelinePopup);
@@ -252,6 +247,7 @@ export default function VideoCard({
             autoPlay={featured}
             muted
             playsInline
+            loop
           />
         )}
         <video
@@ -262,6 +258,7 @@ export default function VideoCard({
           autoPlay={featured}
           muted={featured}
           playsInline
+          loop
         />
 
         {showTimeline && (
@@ -272,7 +269,23 @@ export default function VideoCard({
 
         {/* Controls */}
         <div className="video-controls">
-          <div className="video-timeline" ref={timelinelineRef}>
+          <div 
+            className="video-timeline" 
+            ref={timelinelineRef}
+            onClick={(e) => {
+              e.stopPropagation();
+              const video = mainRef.current;
+              const bgVideo = bgRef.current;
+              const tlVideo = timelineVidRef.current;
+              const timeline = timelinelineRef.current;
+              if (!video || !timeline || !video.duration) return;
+              const rect = timeline.getBoundingClientRect();
+              const pos = (e.clientX - rect.left) / rect.width;
+              video.currentTime = pos * video.duration;
+              if (bgVideo) bgVideo.currentTime = video.currentTime;
+              if (tlVideo) tlVideo.currentTime = video.currentTime;
+            }}
+          >
             <div className="video-progress" ref={progressRef} />
           </div>
           <div className="video-bottom-controls">
@@ -302,14 +315,29 @@ export default function VideoCard({
 
       {/* Timeline View */}
       {videoTimeline && (
-        <div className="timeline-view">
+        <div 
+          className="timeline-view"
+          onClick={(e) => {
+            const video = mainRef.current;
+            const container = e.currentTarget;
+            if (!video || !video.duration) return;
+            const rect = container.getBoundingClientRect();
+            const ratio = (e.clientX - rect.left) / rect.width;
+            video.currentTime = ratio * video.duration;
+            if (bgRef.current) bgRef.current.currentTime = video.currentTime;
+            if (timelineVidRef.current) timelineVidRef.current.currentTime = video.currentTime;
+          }}
+        >
           <video
             ref={timelineVidRef}
             src={videoTimeline}
             autoPlay={featured}
             muted
             playsInline
+            loop
+            style={{ pointerEvents: 'none' }}
           />
+          <div className="timeline-indicator" ref={timelineIndicatorRef} />
         </div>
       )}
 
