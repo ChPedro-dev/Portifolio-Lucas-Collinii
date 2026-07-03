@@ -16,6 +16,7 @@ import AfterPartyDetail from './components/AfterPartyDetail';
 import FellowshipDetail from './components/FellowshipDetail';
 import WorkshopDetail from './components/WorkshopDetail';
 import KalliniDetail from './components/KalliniDetail';
+import ColliniLabDetail from './components/ColliniLabDetail';
 
 
 function App() {
@@ -33,12 +34,16 @@ function App() {
   }, []);
 
   const handleBack = () => {
+    // Determina a seção alvo baseada no projeto atual
+    const isPersonal = activeProject && (activeProject.id === 'kalliniCard' || activeProject.id === 'colliniLabCard');
+    const targetId = isPersonal ? 'pessoais' : 'voluntario';
+
     setActiveProject(null);
     // Aguarda o próximo tick do DOM para o display: block ser aplicado
     setTimeout(() => {
-      const volunteerSection = document.getElementById('voluntario');
-      if (volunteerSection) {
-        volunteerSection.scrollIntoView({ behavior: 'auto', block: 'start' });
+      const section = document.getElementById(targetId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'auto', block: 'start' });
       }
     }, 10);
   };
@@ -120,7 +125,14 @@ function App() {
         />
       )}
 
-      {activeProject && activeProject.id !== 'abbaJovemCard' && activeProject.id !== 'afterPartyCard' && activeProject.id !== 'fellowshipCard' && activeProject.id !== 'workshopCard' && activeProject.id !== 'kalliniCard' && (
+      {activeProject && activeProject.id === 'colliniLabCard' && (
+        <ColliniLabDetail
+          project={activeProject}
+          onBack={handleBack}
+        />
+      )}
+
+      {activeProject && activeProject.id !== 'abbaJovemCard' && activeProject.id !== 'afterPartyCard' && activeProject.id !== 'fellowshipCard' && activeProject.id !== 'workshopCard' && activeProject.id !== 'kalliniCard' && activeProject.id !== 'colliniLabCard' && (
         <ProjectDetail
           project={activeProject}
           onBack={handleBack}

@@ -38,10 +38,9 @@ export default function KalliniDetail({ project, onBack }) {
           {/* Left panel - Info */}
           <div className="kl-info-panel">
             <ul className="kl-info-list">
-              <li>PACOTE GRÁFICO</li>
-              <li>THUMBNAIL</li>
-              <li>BANNER</li>
-              <li>CRIAÇÃO DE IDENTIDADE VISUAL</li>
+             <li>Desenvolvimento completo do pacote gráfico e da identidade visual do projeto,</li>
+             <li>incluindo criação de banners, vinheta, edição e finalização de vídeo,</li>
+             <li>garantindo uma comunicação visual consistente e alinhada à proposta da produção.</li>
             </ul>
             <div className="kl-logo-row">
               <img src={`${ASSETS}/MAIN/2MAIN_00096.png`} alt="Kallini Logo" className="kl-logo-img kl-icon" />
@@ -61,7 +60,7 @@ export default function KalliniDetail({ project, onBack }) {
              <img src={`${ASSETS}/THUMB EP1.png`} alt="Thumb EP1" className="kl-card-media" />
            </div>
            <div className="kl-card kl-vh-card">
-             <video src={`${ASSETS}/VH_KALLINI_COLLINI.mov`} autoPlay loop muted playsInline className="kl-card-media" />
+             <video src={`${ASSETS}/KALLINI_vh.mp4`} autoPlay loop muted playsInline className="kl-card-media" />
            </div>
         </div>
 
@@ -83,6 +82,17 @@ export default function KalliniDetail({ project, onBack }) {
           </div>
         </div>
       </section>
+
+      <img
+        src={`${ASSETS}/KALISTA 1.png`}
+        alt="Kalista"
+        className="kl-kalista-overlay kl-kalista-right"
+      />
+      <img
+        src={`${ASSETS}/KALISTA 2.png`}
+        alt="Kalista 2"
+        className="kl-kalista-overlay kl-kalista-left"
+      />
     </div>
   );
 }

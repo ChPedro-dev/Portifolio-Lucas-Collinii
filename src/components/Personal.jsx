@@ -13,6 +13,7 @@ const personalProjects = [
   },
   {
     id: 'colliniLabCard',
+    image: '/assets/SESSÃO 3/CLAB/Wallpaper Collini Lab v2.png',
     gradient: 'linear-gradient(135deg, #1a1a1a, #2a2a2a)',
     emoji: '👕',
     typeLabel: 'Projeto Pessoal · Moda',
