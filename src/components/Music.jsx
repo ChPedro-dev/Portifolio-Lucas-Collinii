@@ -114,7 +114,7 @@ function Track({ track }) {
         }
       }
     };
-  }, [track.audio]);
+  }, [track.audio, track.num]);
 
   const togglePlay = (e) => {
     e.stopPropagation();

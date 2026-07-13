@@ -87,9 +87,7 @@ export default function VideoCard({
     const muteBtn = muteBtnRef.current;
     const volSlider = volumeRef.current;
     const progressBar = progressRef.current;
-    const timeline = timelinelineRef.current;
     const popup = popupRef.current;
-    const timelineIndicator = timelineIndicatorRef.current;
     const imgContainer = card?.querySelector('.proj-img');
 
     if (!video || !card) return;
