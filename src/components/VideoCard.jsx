@@ -308,7 +308,7 @@ export default function VideoCard({
         </div>
 
         <div className="play-overlay">
-          <img src="/assets/PNGS/PLAY BOTTOM.png" alt="Play" />
+          <img src="/assets/PNGS/IconPlay.png" alt="Play" />
         </div>
         <div className="proj-img-overlay" />
       </div>

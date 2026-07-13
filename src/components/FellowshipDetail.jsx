@@ -57,7 +57,7 @@ export default function FellowshipDetail({ project, onBack }) {
             <div className="fl-card fl-card--hero">
               <video
                 ref={video1Ref}
-                src={`${ASSETS}/FELLOWSHIP AJ 26.04.mp4`}
+                src={`${ASSETS}/FELLOWSHIP AJ.mp4`}
                 autoPlay
                 loop
                 muted
@@ -71,7 +71,7 @@ export default function FellowshipDetail({ project, onBack }) {
             <div className="fl-card fl-card--hero">
               <video
                 ref={video2Ref}
-                src={`${ASSETS}/2026-04-21 17-02-49.mp4`}
+                src={`${ASSETS}/TIMELINE_VIDEO.mp4`}
                 autoPlay
                 loop
                 muted

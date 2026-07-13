@@ -7,7 +7,7 @@ const professionalProjects = [
     id: 'vincenzoCard',
     featured: true,
     videoMain: '/assets/SESSÃO 1/FINALIZADOS/CH VICENZO.mp4',
-    videoBg: '/assets/SESSÃO 1/Desfocado/VINCENZO DESFOCADO.mp4',
+    videoBg: '/assets/SESSÃO 1/DESFOCADO/VINCENZO DESFOCADO.mp4',
     videoTimeline: '/assets/SESSÃO 1/TIMELINES/TIMELINE VINCENZO.mp4',
     poster: '/assets/SESSÃO 1/CAPAS/CAPA VINCENZO.png',
     title: 'Vincenzo',
@@ -18,7 +18,7 @@ const professionalProjects = [
   {
     id: 'extraCard',
     videoMain: '/assets/SESSÃO 1/FINALIZADOS/CH EXTRA v1.mp4',
-    videoBg: '/assets/SESSÃO 1/Desfocado/EXTRACURRICULAR DESFOCADO.mp4',
+    videoBg: '/assets/SESSÃO 1/DESFOCADO/EXTRACURRICULAR DESFOCADO.mp4',
     videoTimeline: '/assets/SESSÃO 1/TIMELINES/TIMELINE EXTRACURRICULAR.mp4',
     poster: '/assets/SESSÃO 1/CAPAS/CAPA EXTRACURRICULAR.png',
     title: 'Extracurricular',
@@ -29,7 +29,7 @@ const professionalProjects = [
   {
     id: 'cinemaCard',
     videoMain: '/assets/SESSÃO 1/FINALIZADOS/CH CINEMA LIVRE MANUT 2.mp4',
-    videoBg: '/assets/SESSÃO 1/Desfocado/CINEMA LIVRE 2 DESFOCADO.mp4',
+    videoBg: '/assets/SESSÃO 1/DESFOCADO/CINEMA LIVRE 2 DESFOCADO.mp4',
     videoTimeline: '/assets/SESSÃO 1/TIMELINES/TIMELINE CINEMA LIVRE.mp4',
     poster: '/assets/SESSÃO 1/CAPAS/CAPA CINEMA LIVRE.png',
     title: 'Cinema Livre 1',
@@ -40,7 +40,7 @@ const professionalProjects = [
   {
     id: 'cinema3Card',
     videoMain: '/assets/SESSÃO 1/FINALIZADOS/CH CINEMA LIVRE MANUT 3.mp4',
-    videoBg: '/assets/SESSÃO 1/Desfocado/CINEMA LIVRE 3 DESFOCADO.mp4',
+    videoBg: '/assets/SESSÃO 1/DESFOCADO/CINEMA LIVRE 3 DESFOCADO.mp4',
     videoTimeline: '/assets/SESSÃO 1/TIMELINES/TIMELINE CINEMA LIVRE MANUT3.mp4',
     poster: '/assets/SESSÃO 1/CAPAS/CAPA CINEMA LIVRE.png',
     title: 'Cinema Livre 2',
@@ -51,7 +51,7 @@ const professionalProjects = [
   {
     id: 'cinema4Card',
     videoMain: '/assets/SESSÃO 1/FINALIZADOS/CH CINEMA LIVRE MANUT 4.mp4',
-    videoBg: '/assets/SESSÃO 1/Desfocado/CINEMA LIVRE 4 DESFOCADO.mp4',
+    videoBg: '/assets/SESSÃO 1/DESFOCADO/CINEMA LIVRE 4 DESFOCADO.mp4',
     videoTimeline: '/assets/SESSÃO 1/TIMELINES/TIMELINE CINEMA LIVRE MANUT4.mp4',
     poster: '/assets/SESSÃO 1/CAPAS/CAPA CINEMA LIVRE.png',
     title: 'Cinema Livre 3',
@@ -62,7 +62,7 @@ const professionalProjects = [
   {
     id: 'caminhoCard',
     videoMain: '/assets/SESSÃO 1/FINALIZADOS/CH CAMINHO DO CÉU.mp4',
-    videoBg: '/assets/SESSÃO 1/Desfocado/A CAMINHO DO CÉU DESFOCADO.mp4',
+    videoBg: '/assets/SESSÃO 1/DESFOCADO/A CAMINHO DO CÉU DESFOCADO.mp4',
     videoTimeline: '/assets/SESSÃO 1/TIMELINES/TIMELINE A CAMINHO DO CÉU.mp4',
     poster: '/assets/SESSÃO 1/CAPAS/CAPA A CAMINHO DO CÉU.png',
     title: 'A Caminho do Céu',
@@ -73,7 +73,7 @@ const professionalProjects = [
   {
     id: 'lostCard',
     videoMain: '/assets/SESSÃO 1/FINALIZADOS/CH LOST.mp4',
-    videoBg: '/assets/SESSÃO 1/Desfocado/LOST DESFOCADO.mp4',
+    videoBg: '/assets/SESSÃO 1/DESFOCADO/LOST DESFOCADO.mp4',
     videoTimeline: '/assets/SESSÃO 1/TIMELINES/TIMELINE LOST.mp4',
     poster: '/assets/SESSÃO 1/CAPAS/CAPA LOST.png',
     title: 'Lost',
@@ -84,7 +84,7 @@ const professionalProjects = [
   {
     id: 'seriesCard',
     videoMain: '/assets/SESSÃO 1/FINALIZADOS/CH SÉRIES MANUT 2.mp4',
-    videoBg: '/assets/SESSÃO 1/Desfocado/SUPER SÉRIES DESFOCADO.mp4',
+    videoBg: '/assets/SESSÃO 1/DESFOCADO/SUPER SÉRIES DESFOCADO.mp4',
     videoTimeline: '/assets/SESSÃO 1/TIMELINES/TIMELINE SUPER SÉRIES.mp4',
     poster: '/assets/SESSÃO 1/CAPAS/CAPA SUPER SERIES.png',
     title: 'Super Séries',

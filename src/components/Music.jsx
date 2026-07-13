@@ -182,7 +182,7 @@ export default function Music() {
               rel="noreferrer"
               className="music-link spotify"
             >
-              <img src="/assets/PNGS/Spotify.png" alt="Spotify" className="platform-logo" />
+              <img src="/assets/PNGS/IconSpotify.png" alt="Spotify" className="platform-logo" />
               <span>Spotify</span>
             </a>
             <a
@@ -191,7 +191,7 @@ export default function Music() {
               rel="noreferrer"
               className="music-link soundcloud"
             >
-              <img src="/assets/PNGS/soundcloud.png" alt="SoundCloud" className="platform-logo" />
+              <img src="/assets/PNGS/IconSoundCloud.png" alt="SoundCloud" className="platform-logo" />
               <span>SoundCloud</span>
             </a>
           </div>
