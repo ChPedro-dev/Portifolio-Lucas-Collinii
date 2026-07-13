@@ -37,4 +37,7 @@ yarn-error.log*
 *.svg
 *.zip
 
-# Specific folders
+!*.mp4
+!*.png
+!*.jpg
+!*.svg
