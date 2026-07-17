@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './FellowshipDetail.css';
 
-const ASSETS = '/assets/SESSÃO 2/FELLOWSHIP';
+const ASSETS = '/assets/sessao-2/fellowship';
 
 export default function FellowshipDetail({ project, onBack }) {
   const pageRef = useRef(null);
@@ -32,7 +32,7 @@ export default function FellowshipDetail({ project, onBack }) {
       className="fl-detail-page"
       ref={pageRef}
       style={{
-        backgroundImage: `url('${ASSETS}/BG FELLOWSHIP.png')`,
+        backgroundImage: `url('${ASSETS}/bg-fellowship.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -57,7 +57,7 @@ export default function FellowshipDetail({ project, onBack }) {
             <div className="fl-card fl-card--hero">
               <video
                 ref={video1Ref}
-                src={`${ASSETS}/FELLOWSHIP AJ.mp4`}
+                src={`${ASSETS}/fellowship-aj.mp4`}
                 autoPlay
                 loop
                 muted
@@ -71,7 +71,7 @@ export default function FellowshipDetail({ project, onBack }) {
             <div className="fl-card fl-card--hero">
               <video
                 ref={video2Ref}
-                src={`${ASSETS}/TIMELINE_VIDEO.mp4`}
+                src={`${ASSETS}/timeline_video.mp4`}
                 autoPlay
                 loop
                 muted
@@ -87,7 +87,7 @@ export default function FellowshipDetail({ project, onBack }) {
           <span className="fl-card-title fl-card-title--center">Fellowship AJ – Descanso</span>
           <div className="fl-card fl-card--descanso">
             <img
-              src={`${ASSETS}/DESCANSO FELLOWSHIP AJ.png`}
+              src={`${ASSETS}/descanso-fellowship-aj.png`}
               alt="Descanso Fellowship AJ"
               className="fl-card-media"
             />

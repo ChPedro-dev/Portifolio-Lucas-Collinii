@@ -1,32 +1,32 @@
 import { useEffect, useRef } from 'react';
 import './AfterPartyDetail.css';
 
-const ASSETS = '/assets/SESSÃO 2/AFTER PARTY';
+const ASSETS = '/assets/sessao-2/after-party';
 
 const themeCards = [
   {
     id: 'af-descanso',
     title: 'After Party - Descanso',
     type: 'image',
-    src: `${ASSETS}/DESCANSO AFTER PARTY.png`,
+    src: `${ASSETS}/descanso-after-party.png`,
   },
   {
     id: 'af-bg-animado',
     title: 'After Party - Background animado',
     type: 'video',
-    src: `${ASSETS}/BG After Party Descanso Animado.mp4`,
+    src: `${ASSETS}/bg-after-party-descanso-animado.mp4`,
   },
   {
     id: 'af-pinata',
     title: 'After Party - VH Piñata',
     type: 'video',
-    src: `${ASSETS}/VH PIÑATA.mp4`,
+    src: `${ASSETS}/vh-pinata.mp4`,
   },
   {
     id: 'af-mexican',
     title: 'After Party - AF Mexican',
     type: 'image',
-    src: `${ASSETS}/AF MEXICAN.png`,
+    src: `${ASSETS}/af-mexican.png`,
   },
 ];
 
@@ -41,7 +41,7 @@ export default function AfterPartyDetail({ project, onBack }) {
     <div className="af-detail-page" ref={pageRef}>
       <video
         className="af-bg-video"
-        src={`${ASSETS}/BG SESSÃO AF.mp4`}
+        src={`${ASSETS}/bg-sessao-af.mp4`}
         autoPlay
         loop
         muted

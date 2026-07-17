@@ -5,32 +5,32 @@ import './Music.css';
 const tracklist = [
   {
     num: 1,
-    audio: '/assets/SESSÃO 5/WAV/NEEDIT.wav',
-    cover: '/assets/SESSÃO 5/CAPAS/CAPA NEED IT.jpg',
+    audio: '/assets/sessao-4/wav/needit.wav',
+    cover: '/assets/sessao-4/capas/capa-need-it.jpg',
     name: 'Need It',
     year: '2025',
     type: 'Single',
   },
   {
     num: 2,
-    audio: '/assets/SESSÃO 5/WAV/POPTHAT.wav',
-    cover: '/assets/SESSÃO 5/CAPAS/CAPA POP THAT.jpg',
+    audio: '/assets/sessao-4/wav/popthat.wav',
+    cover: '/assets/sessao-4/capas/capa-pop-that.jpg',
     name: 'Pop That',
     year: '2025',
     type: 'Single',
   },
   {
     num: 3,
-    audio: '/assets/SESSÃO 5/WAV/FACE.wav',
-    cover: '/assets/SESSÃO 5/CAPAS/CAPA FACE.jpg',
+    audio: '/assets/sessao-4/wav/face.wav',
+    cover: '/assets/sessao-4/capas/capa-face.jpg',
     name: 'Face',
     year: '2026',
     type: 'Single',
   },
   {
     num: 4,
-    audio: '/assets/SESSÃO 5/WAV/TASTEOFYOU3.wav',
-    cover: '/assets/SESSÃO 5/CAPAS/CAPA SUMMER SEASON.jpg',
+    audio: '/assets/sessao-4/wav/tasteofyou3.wav',
+    cover: '/assets/sessao-4/capas/capa-summer-season.jpg',
     name: 'Summer Season',
     year: '2026',
     type: 'EP',
@@ -182,7 +182,7 @@ export default function Music() {
               rel="noreferrer"
               className="music-link spotify"
             >
-              <img src="/assets/PNGS/IconSpotify.png" alt="Spotify" className="platform-logo" />
+              <img src="/assets/pngs/iconspotify.png" alt="Spotify" className="platform-logo" />
               <span>Spotify</span>
             </a>
             <a
@@ -191,7 +191,7 @@ export default function Music() {
               rel="noreferrer"
               className="music-link soundcloud"
             >
-              <img src="/assets/PNGS/IconSoundCloud.png" alt="SoundCloud" className="platform-logo" />
+              <img src="/assets/pngs/iconsoundcloud.png" alt="SoundCloud" className="platform-logo" />
               <span>SoundCloud</span>
             </a>
           </div>

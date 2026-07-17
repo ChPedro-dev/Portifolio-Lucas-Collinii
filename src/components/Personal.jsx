@@ -3,7 +3,7 @@ import './Projects.css';
 const personalProjects = [
   {
     id: 'kalliniCard',
-    image: '/assets/SESSÃO 3/KALLINI/CAPA.png',
+    image: '/assets/sessao-3/kallini/capa.png',
     gradient: 'linear-gradient(135deg, #001a3a, #003a6e, #0050a0)',
     emoji: '⚔️',
     typeLabel: 'Projeto Pessoal · Gaming',
@@ -13,7 +13,7 @@ const personalProjects = [
   },
   {
     id: 'colliniLabCard',
-    image: '/assets/SESSÃO 3/CLAB/Wallpaper Collini Lab v2.png',
+    image: '/assets/sessao-3/clab/wallpaper-collini-lab-v2.png',
     gradient: 'linear-gradient(135deg, #1a1a1a, #2a2a2a)',
     emoji: '👕',
     typeLabel: 'Projeto Pessoal · Moda',

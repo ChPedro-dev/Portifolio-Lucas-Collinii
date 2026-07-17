@@ -7,8 +7,7 @@ import './Projects.css';
  * Props:
  *  id          string  — id do elemento (ex: "vincenzoCard")
  *  featured    bool    — ocupa 2 colunas e inicia com autoplay
- *  videoMain   string  — URL do vídeo principal
- *  videoBg     string  — URL do vídeo desfocado de fundo (opcional)
+ *  videoMain   string  — URL do vídeo principal (usado também como fundo desfocado)
  *  videoTimeline string — URL do vídeo da timeline (opcional)
  *  poster      string  — URL da imagem de capa
  *  title       string
@@ -40,7 +39,6 @@ export default function VideoCard({
   const volumeRef = useRef(null);
   const timelinelineRef = useRef(null);
   const popupRef = useRef(null);
-  const timelineIndicatorRef = useRef(null);
   const popupTimerRef = useRef(null);
 
   // Registra o vídeo principal na lista global de auto-pause
@@ -172,12 +170,9 @@ export default function VideoCard({
       if (!video.duration) return;
       const pct = (video.currentTime / video.duration) * 100;
       if (progressBar) progressBar.style.width = pct + '%';
-      if (timelineIndicatorRef.current) timelineIndicatorRef.current.style.left = pct + '%';
       if (bgVideo && Math.abs(bgVideo.currentTime - video.currentTime) > 0.1) bgVideo.currentTime = video.currentTime;
       if (tlVideo && Math.abs(tlVideo.currentTime - video.currentTime) > 0.1) tlVideo.currentTime = video.currentTime;
     };
-
-    // onSeek is now handled via React onClick
 
     const onEnded = () => {
       video.removeAttribute('autoplay');
@@ -237,27 +232,31 @@ export default function VideoCard({
     >
       {/* Proj Image / Video Area */}
       <div className="proj-img">
-        {videoBg && (
+        <div className="video-blur-wrapper">
+          {/* Cópia desfocada do vídeo — sempre visível como fundo dinâmico */}
           <video
             ref={bgRef}
-            src={videoBg}
-            className="video-bg"
+            src={videoMain}
+            className="video-bg-blur"
             autoPlay={featured}
             muted
             playsInline
             loop
+            tabIndex={-1}
+            aria-hidden="true"
           />
-        )}
-        <video
-          ref={mainRef}
-          src={videoMain}
-          className="video-main"
-          poster={poster}
-          autoPlay={featured}
-          muted={featured}
-          playsInline
-          loop
-        />
+          {/* Vídeo principal — na frente */}
+          <video
+            ref={mainRef}
+            src={videoMain}
+            className="video-main"
+            poster={poster}
+            autoPlay={featured}
+            muted={featured}
+            playsInline
+            loop
+          />
+        </div>
 
         {showTimeline && (
           <button className="timeline-popup" ref={popupRef}>
@@ -267,8 +266,9 @@ export default function VideoCard({
 
         {/* Controls */}
         <div className="video-controls">
-          <div 
-            className="video-timeline" 
+          {/* video-timeline — clique para seek */}
+          <div
+            className="video-timeline"
             ref={timelinelineRef}
             onClick={(e) => {
               e.stopPropagation();
@@ -306,26 +306,14 @@ export default function VideoCard({
         </div>
 
         <div className="play-overlay">
-          <img src="/assets/PNGS/IconPlay.png" alt="Play" />
+          <img src="/assets/pngs/iconplay.png" alt="Play" />
         </div>
         <div className="proj-img-overlay" />
       </div>
 
-      {/* Timeline View */}
+      {/* Timeline View — read-only, sem seek por clique */}
       {videoTimeline && (
-        <div 
-          className="timeline-view"
-          onClick={(e) => {
-            const video = mainRef.current;
-            const container = e.currentTarget;
-            if (!video || !video.duration) return;
-            const rect = container.getBoundingClientRect();
-            const ratio = (e.clientX - rect.left) / rect.width;
-            video.currentTime = ratio * video.duration;
-            if (bgRef.current) bgRef.current.currentTime = video.currentTime;
-            if (timelineVidRef.current) timelineVidRef.current.currentTime = video.currentTime;
-          }}
-        >
+        <div className="timeline-view">
           <video
             ref={timelineVidRef}
             src={videoTimeline}
@@ -335,7 +323,6 @@ export default function VideoCard({
             loop
             style={{ pointerEvents: 'none' }}
           />
-          <div className="timeline-indicator" ref={timelineIndicatorRef} />
         </div>
       )}
 

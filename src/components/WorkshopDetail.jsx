@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './WorkshopDetail.css';
 
-const ASSETS = '/assets/SESSÃO 2/WORKSHOP';
+const ASSETS = '/assets/sessao-2/workshop';
 
 export default function WorkshopDetail({ project, onBack }) {
   const pageRef = useRef(null);
@@ -31,7 +31,7 @@ export default function WorkshopDetail({ project, onBack }) {
     <div className="ws-detail-page" ref={pageRef}>
       <video
         className="ws-bg-video"
-        src={`${ASSETS}/BG SESSÃO WORKSHOP.mp4`}
+        src={`${ASSETS}/bg-sessao-workshop.mp4`}
         autoPlay
         loop
         muted
@@ -58,7 +58,7 @@ export default function WorkshopDetail({ project, onBack }) {
             <div className="ws-card ws-card--hero">
               <video
                 ref={video1Ref}
-                src={`${ASSETS}/TIMELINE WORKSHOP ok.mp4`}
+                src={`${ASSETS}/timeline-workshop-ok.mp4`}
                 autoPlay
                 loop
                 muted
@@ -72,7 +72,7 @@ export default function WorkshopDetail({ project, onBack }) {
             <div className="ws-card ws-card--hero">
               <video
                 ref={video2Ref}
-                src={`${ASSETS}/VIDEO DE AVISO.mp4`}
+                src={`${ASSETS}/video-de-aviso.mp4`}
                 autoPlay
                 loop
                 muted
@@ -89,7 +89,7 @@ export default function WorkshopDetail({ project, onBack }) {
             <span className="ws-card-title">Workshop - Descanso</span>
             <div className="ws-card ws-card--image">
               <img
-                src={`${ASSETS}/DESCANSO WORKSHOP.png`}
+                src={`${ASSETS}/descanso-workshop.png`}
                 alt="Descanso Workshop"
                 className="ws-card-media"
               />
@@ -99,7 +99,7 @@ export default function WorkshopDetail({ project, onBack }) {
             <span className="ws-card-title">Workshop - Fundo</span>
             <div className="ws-card ws-card--image">
               <img
-                src={`${ASSETS}/FUNDO WORKSHOP.png`}
+                src={`${ASSETS}/fundo-workshop.png`}
                 alt="Fundo Workshop"
                 className="ws-card-media"
               />

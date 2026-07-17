@@ -5,8 +5,8 @@ import './Projects.css';
 const volunteerProjects = [
   {
     id: 'afterPartyCard',
-    image: '/assets/SESSÃO 2/AFTER PARTY/DESCANSO AFTER PARTY.png',
-    hoverBg: '/assets/SESSÃO 2/AFTER PARTY/BG AFTER PARTY.png',
+    image: '/assets/sessao-2/after-party/descanso-after-party.png',
+    hoverBg: '/assets/sessao-2/after-party/bg-after-party.png',
     title: 'AJ After Party México',
     desc: 'Edição, desenvolvimento de pacote gráfico e finalização de projeto de encerramento de semestre. O trabalho que marcou o início da minha trajetória com o After Effects.',
     tags: ['After Effects', 'Motion Design'],
@@ -14,8 +14,8 @@ const volunteerProjects = [
   },
   {
     id: 'fellowshipCard',
-    image: '/assets/SESSÃO 2/FELLOWSHIP/DESCANSO FELLOWSHIP AJ.png',
-    hoverBg: '/assets/SESSÃO 2/FELLOWSHIP/BG FELLOWSHIP.png',
+    image: '/assets/sessao-2/fellowship/descanso-fellowship-aj.png',
+    hoverBg: '/assets/sessao-2/fellowship/bg-fellowship.png',
     title: 'AJ Fellowship',
     desc: 'Edição e finalização de vídeo para o evento Fellowship do Abba Jovem. Trabalho focado em capturar a energia e a conexão entre os participantes.',
     tags: ['Edição', 'After Effects'],
@@ -23,16 +23,16 @@ const volunteerProjects = [
   },
   {
     id: 'abbaJovemCard',
-    image: '/assets/SESSÃO 2/TEMA AJ 2025/CAPA.png',
-    hoverBg: '/assets/SESSÃO 2/TEMA AJ 2025/AJ BG FUNDO.png',
+    image: '/assets/sessao-2/tema-aj-2025/capa.png',
+    hoverBg: '/assets/sessao-2/tema-aj-2025/aj-bg-fundo.png',
     title: 'Abba Jovem',
     desc: 'Desenvolvimento de pacote gráfico para a identidade visual do Abba Jovem, explorando referências do litoral e uma estética leve, com clima veranil.',
     tags: ['Identidade Visual', 'Motion'],
   },
   {
     id: 'workshopCard',
-    image: '/assets/SESSÃO 2/WORKSHOP/DESCANSO WORKSHOP.png',
-    hoverBg: '/assets/SESSÃO 2/WORKSHOP/BG SESSÃO WORKSHOP.mp4',
+    image: '/assets/sessao-2/workshop/descanso-workshop.png',
+    hoverBg: '/assets/sessao-2/workshop/bg-sessao-workshop.mp4',
     title: 'Workshop Abba Música',
     desc: 'Desenvolvimento de pacote gráfico para identidade visual do grupo Abba Música. Projeto educacional com abordagem visual simples, priorizando clareza e funcionalidade.',
     tags: ['Identidade Visual', 'Design'],

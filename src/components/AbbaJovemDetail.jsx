@@ -1,32 +1,32 @@
 import { useEffect, useRef } from 'react';
 import './AbbaJovemDetail.css';
 
-const ASSETS = '/assets/SESSÃO 2/TEMA AJ 2025';
+const ASSETS = '/assets/sessao-2/tema-aj-2025';
 
 const themeCards = [
   {
     id: 'aj-descanso',
     title: 'Tema AJ - Descanso',
     type: 'image',
-    src: `${ASSETS}/AJ BG FUNDO.png`,
+    src: `${ASSETS}/aj-bg-fundo.png`,
   },
   {
     id: 'aj-descanso-animado',
     title: 'Tema AJ - Descanso animado',
     type: 'video',
-    src: `${ASSETS}/AJ DESCANSO.mp4`,
+    src: `${ASSETS}/aj-descanso.mp4`,
   },
   {
     id: 'aj-bg-animation',
     title: 'Tema AJ - Background animado',
     type: 'video',
-    src: `${ASSETS}/AJ BG ANIMATION.mp4`,
+    src: `${ASSETS}/aj-bg-animation.mp4`,
   },
   {
     id: 'aj-cronometro',
     title: 'Tema AJ - Cronômetro',
     type: 'video',
-    src: `${ASSETS}/AJ CRONOMETRO.mp4`,
+    src: `${ASSETS}/aj-cronometro.mp4`,
   },
 ];
 
@@ -41,7 +41,7 @@ export default function AbbaJovemDetail({ project, onBack }) {
     <div className="aj-detail-page" ref={pageRef}>
       <video
         className="aj-bg-video"
-        src={`${ASSETS}/BG SESSÃO AJ.mp4`}
+        src={`${ASSETS}/bg-sessao-aj.mp4`}
         autoPlay
         loop
         muted
