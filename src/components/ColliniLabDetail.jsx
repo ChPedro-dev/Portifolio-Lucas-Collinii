@@ -12,7 +12,7 @@ export default function ColliniLabDetail({ project, onBack }) {
 
   return (
     <div className="clab-detail-page" ref={pageRef}>
-      <div className="clab-bg-image" style={{ backgroundImage: `url('${ASSETS}/background-clab.png')` }} />
+      <div className="clab-bg-image" style={{ backgroundImage: `url('${ASSETS}/background-clab.webp')` }} />
 
       <button className="clab-back-button" onClick={onBack}>
         ← Voltar
@@ -28,22 +28,22 @@ export default function ColliniLabDetail({ project, onBack }) {
           <h2 className="clab-section-title">IDENTIDADE VISUAL</h2>
           
           <div className="clab-grid-4">
-            <div className="clab-card"><img src={`${ASSETS}/png1.png`} alt="Logo 1" /></div>
-            <div className="clab-card"><img src={`${ASSETS}/png2.png`} alt="Logo 2" /></div>
-            <div className="clab-card"><img src={`${ASSETS}/png3.png`} alt="Logo 3" /></div>
-            <div className="clab-card"><img src={`${ASSETS}/png4.png`} alt="Logo 4" /></div>
+            <div className="clab-card"><img src={`${ASSETS}/png1.webp`} alt="Logo 1" /></div>
+            <div className="clab-card"><img src={`${ASSETS}/png2.webp`} alt="Logo 2" /></div>
+            <div className="clab-card"><img src={`${ASSETS}/png3.webp`} alt="Logo 3" /></div>
+            <div className="clab-card"><img src={`${ASSETS}/png4.webp`} alt="Logo 4" /></div>
           </div>
 
           <div className="clab-grid-4">
-            <div className="clab-card-no-padding"><img src={`${ASSETS}/png5.png`} alt="Tshirt 1" /></div>
-            <div className="clab-card-no-padding"><img src={`${ASSETS}/png6.png`} alt="Tshirt 2" /></div>
-            <div className="clab-card-no-padding"><img src={`${ASSETS}/png7.png`} alt="Tshirt 3" /></div>
-            <div className="clab-card-no-padding"><img src={`${ASSETS}/png8.png`} alt="Tshirt 4" /></div>
+            <div className="clab-card-no-padding"><img src={`${ASSETS}/png5.webp`} alt="Tshirt 1" /></div>
+            <div className="clab-card-no-padding"><img src={`${ASSETS}/png6.webp`} alt="Tshirt 2" /></div>
+            <div className="clab-card-no-padding"><img src={`${ASSETS}/png7.webp`} alt="Tshirt 3" /></div>
+            <div className="clab-card-no-padding"><img src={`${ASSETS}/png8.webp`} alt="Tshirt 4" /></div>
           </div>
 
           <div className="clab-wallpapers">
-            <img src={`${ASSETS}/wallpaper1.png`} alt="Wallpaper 1" className="clab-wallpaper-1" />
-            <img src={`${ASSETS}/wallpaper2.png`} alt="Wallpaper 2" className="clab-wallpaper-2" />
+            <img src={`${ASSETS}/wallpaper1.webp`} alt="Wallpaper 1" className="clab-wallpaper-1" />
+            <img src={`${ASSETS}/wallpaper2.webp`} alt="Wallpaper 2" className="clab-wallpaper-2" />
           </div>
         </section>
 
@@ -53,16 +53,16 @@ export default function ColliniLabDetail({ project, onBack }) {
           <div className="clab-bottom-layout">
             <div className="clab-bottom-left">
               <div className="clab-tshirts-box">
-                <img src={`${ASSETS}/tshirt1.png`} alt="Tshirt Flat 1" />
-                <img src={`${ASSETS}/tshirt2.png`} alt="Tshirt Flat 2" />
-                <img src={`${ASSETS}/tshirt3.png`} alt="Tshirt Flat 3" />
-                <img src={`${ASSETS}/tshirt4.png`} alt="Tshirt Flat 4" />
+                <img src={`${ASSETS}/tshirt1.webp`} alt="Tshirt Flat 1" />
+                <img src={`${ASSETS}/tshirt2.webp`} alt="Tshirt Flat 2" />
+                <img src={`${ASSETS}/tshirt3.webp`} alt="Tshirt Flat 3" />
+                <img src={`${ASSETS}/tshirt4.webp`} alt="Tshirt Flat 4" />
               </div>
               <div className="clab-logos-box">
-                <img src={`${ASSETS}/logo1.png`} alt="Logo 1" />
-                <img src={`${ASSETS}/logo2.png`} alt="Logo 2" />
-                <img src={`${ASSETS}/logopng3.png`} alt="Logo 3" />
-                <img src={`${ASSETS}/logopng4.png`} alt="Logo 4" />
+                <img src={`${ASSETS}/logo1.webp`} alt="Logo 1" />
+                <img src={`${ASSETS}/logo2.webp`} alt="Logo 2" />
+                <img src={`${ASSETS}/logopng3.webp`} alt="Logo 3" />
+                <img src={`${ASSETS}/logopng4.webp`} alt="Logo 4" />
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function ColliniLabDetail({ project, onBack }) {
       </div>
 
       <img
-        src={`${ASSETS}/manequin.png`}
+        src={`${ASSETS}/manequin.webp`}
         alt="Mannequin"
         className="clab-mannequin-overlay"
       />

@@ -8,7 +8,7 @@ const themeCards = [
     id: 'af-descanso',
     title: 'After Party - Descanso',
     type: 'image',
-    src: `${ASSETS}/descanso-after-party.png`,
+    src: `${ASSETS}/descanso-after-party.webp`,
   },
   {
     id: 'af-bg-animado',
@@ -26,7 +26,7 @@ const themeCards = [
     id: 'af-mexican',
     title: 'After Party - AF Mexican',
     type: 'image',
-    src: `${ASSETS}/af-mexican.png`,
+    src: `${ASSETS}/af-mexican.webp`,
   },
 ];
 

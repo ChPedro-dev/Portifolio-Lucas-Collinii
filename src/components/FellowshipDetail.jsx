@@ -32,7 +32,7 @@ export default function FellowshipDetail({ project, onBack }) {
       className="fl-detail-page"
       ref={pageRef}
       style={{
-        backgroundImage: `url('${ASSETS}/bg-fellowship.png')`,
+        backgroundImage: `url('${ASSETS}/bg-fellowship.webp')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -87,7 +87,7 @@ export default function FellowshipDetail({ project, onBack }) {
           <span className="fl-card-title fl-card-title--center">Fellowship AJ – Descanso</span>
           <div className="fl-card fl-card--descanso">
             <img
-              src={`${ASSETS}/descanso-fellowship-aj.png`}
+              src={`${ASSETS}/descanso-fellowship-aj.webp`}
               alt="Descanso Fellowship AJ"
               className="fl-card-media"
             />

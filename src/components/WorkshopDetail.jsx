@@ -89,7 +89,7 @@ export default function WorkshopDetail({ project, onBack }) {
             <span className="ws-card-title">Workshop - Descanso</span>
             <div className="ws-card ws-card--image">
               <img
-                src={`${ASSETS}/descanso-workshop.png`}
+                src={`${ASSETS}/descanso-workshop.webp`}
                 alt="Descanso Workshop"
                 className="ws-card-media"
               />
@@ -99,7 +99,7 @@ export default function WorkshopDetail({ project, onBack }) {
             <span className="ws-card-title">Workshop - Fundo</span>
             <div className="ws-card ws-card--image">
               <img
-                src={`${ASSETS}/fundo-workshop.png`}
+                src={`${ASSETS}/fundo-workshop.webp`}
                 alt="Fundo Workshop"
                 className="ws-card-media"
               />

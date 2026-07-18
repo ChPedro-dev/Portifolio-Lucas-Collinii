@@ -8,7 +8,7 @@ const themeCards = [
     id: 'aj-descanso',
     title: 'Tema AJ - Descanso',
     type: 'image',
-    src: `${ASSETS}/aj-bg-fundo.png`,
+    src: `${ASSETS}/aj-bg-fundo.webp`,
   },
   {
     id: 'aj-descanso-animado',

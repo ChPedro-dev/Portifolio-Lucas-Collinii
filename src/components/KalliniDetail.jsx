@@ -43,21 +43,21 @@ export default function KalliniDetail({ project, onBack }) {
              <li>garantindo uma comunicação visual consistente e alinhada à proposta da produção.</li>
             </ul>
             <div className="kl-logo-row">
-              <img src={`${ASSETS}/logo-color.png`} alt="Kallini Logo" className="kl-logo-img kl-icon" />
-              <img src={`${ASSETS}/marca-d-agua.png`} alt="Kallini Marca" className="kl-logo-img kl-marca" />
+              <img src={`${ASSETS}/logo-color.webp`} alt="Kallini Logo" className="kl-logo-img kl-icon" />
+              <img src={`${ASSETS}/marca-d-agua.webp`} alt="Kallini Marca" className="kl-logo-img kl-marca" />
             </div>
           </div>
 
           {/* Right panel - Banner */}
           <div className="kl-card kl-banner-card">
-            <img src={`${ASSETS}/banner-kallini.png`} alt="Banner Kallini" className="kl-card-media" />
+            <img src={`${ASSETS}/banner-kallini.webp`} alt="Banner Kallini" className="kl-card-media" />
           </div>
         </div>
 
         <div className="kl-mid-grid">
            {/* Thumbs / Small previews */}
            <div className="kl-card kl-thumb-card">
-             <img src={`${ASSETS}/thumb-ep1.png`} alt="Thumb EP1" className="kl-card-media" />
+             <img src={`${ASSETS}/thumb-ep1.webp`} alt="Thumb EP1" className="kl-card-media" />
            </div>
            <div className="kl-card kl-vh-card">
              <video src={`${ASSETS}/kallini_vh.mp4`} autoPlay loop muted playsInline className="kl-card-media" />
@@ -84,12 +84,12 @@ export default function KalliniDetail({ project, onBack }) {
       </section>
 
       <img
-        src={`${ASSETS}/kalista-1.png`}
+        src={`${ASSETS}/kalista-1.webp`}
         alt="Kalista"
         className="kl-kalista-overlay kl-kalista-right"
       />
       <img
-        src={`${ASSETS}/kalista-2.png`}
+        src={`${ASSETS}/kalista-2.webp`}
         alt="Kalista 2"
         className="kl-kalista-overlay kl-kalista-left"
       />

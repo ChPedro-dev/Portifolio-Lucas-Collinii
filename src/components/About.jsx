@@ -10,10 +10,10 @@ const skills = [
 ];
 
 const softwareIcons = [
-  { src: '/assets/pngs/iconpr.png', alt: 'Premiere Pro' },
-  { src: '/assets/pngs/iconaf.png', alt: 'After Effects' },
-  { src: '/assets/pngs/iconps.png', alt: 'Photoshop' },
-  { src: '/assets/pngs/iconfl.png', alt: 'FL Studio' },
+  { src: '/assets/webps/iconpr.webp', alt: 'Premiere Pro' },
+  { src: '/assets/webps/iconaf.webp', alt: 'After Effects' },
+  { src: '/assets/webps/iconps.webp', alt: 'Photoshop' },
+  { src: '/assets/webps/iconfl.webp', alt: 'FL Studio' },
 ];
 
 export default function About() {

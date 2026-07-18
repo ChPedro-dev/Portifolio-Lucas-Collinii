@@ -5,8 +5,8 @@ import './Projects.css';
 const volunteerProjects = [
   {
     id: 'afterPartyCard',
-    image: '/assets/sessao-2/after-party/descanso-after-party.png',
-    hoverBg: '/assets/sessao-2/after-party/bg-after-party.png',
+    image: '/assets/sessao-2/after-party/descanso-after-party.webp',
+    hoverBg: '/assets/sessao-2/after-party/bg-after-party.webp',
     title: 'AJ After Party México',
     desc: 'Edição, desenvolvimento de pacote gráfico e finalização de projeto de encerramento de semestre. O trabalho que marcou o início da minha trajetória com o After Effects.',
     tags: ['After Effects', 'Motion Design'],
@@ -14,8 +14,8 @@ const volunteerProjects = [
   },
   {
     id: 'fellowshipCard',
-    image: '/assets/sessao-2/fellowship/descanso-fellowship-aj.png',
-    hoverBg: '/assets/sessao-2/fellowship/bg-fellowship.png',
+    image: '/assets/sessao-2/fellowship/descanso-fellowship-aj.webp',
+    hoverBg: '/assets/sessao-2/fellowship/bg-fellowship.webp',
     title: 'AJ Fellowship',
     desc: 'Edição e finalização de vídeo para o evento Fellowship do Abba Jovem. Trabalho focado em capturar a energia e a conexão entre os participantes.',
     tags: ['Edição', 'After Effects'],
@@ -23,15 +23,15 @@ const volunteerProjects = [
   },
   {
     id: 'abbaJovemCard',
-    image: '/assets/sessao-2/tema-aj-2025/capa.png',
-    hoverBg: '/assets/sessao-2/tema-aj-2025/aj-bg-fundo.png',
+    image: '/assets/sessao-2/tema-aj-2025/capa.webp',
+    hoverBg: '/assets/sessao-2/tema-aj-2025/aj-bg-fundo.webp',
     title: 'Abba Jovem',
     desc: 'Desenvolvimento de pacote gráfico para a identidade visual do Abba Jovem, explorando referências do litoral e uma estética leve, com clima veranil.',
     tags: ['Identidade Visual', 'Motion'],
   },
   {
     id: 'workshopCard',
-    image: '/assets/sessao-2/workshop/descanso-workshop.png',
+    image: '/assets/sessao-2/workshop/descanso-workshop.webp',
     hoverBg: '/assets/sessao-2/workshop/bg-sessao-workshop.mp4',
     title: 'Workshop Abba Música',
     desc: 'Desenvolvimento de pacote gráfico para identidade visual do grupo Abba Música. Projeto educacional com abordagem visual simples, priorizando clareza e funcionalidade.',
