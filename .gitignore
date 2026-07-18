@@ -38,6 +38,7 @@ yarn-error.log*
 *.zip
 
 !*.mp4
+!*.wav
 !*.png
 !*.jpg
 !*.svg
